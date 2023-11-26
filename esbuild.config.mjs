@@ -15,7 +15,7 @@ esbuild
       js: banner
     },
     entryPoints: ['src/main.ts'],
-    outfile: 'main.js',
+    outdir: 'dist/',
     bundle: true,
     external: [
       'obsidian',
