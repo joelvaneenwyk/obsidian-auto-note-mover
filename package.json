@@ -1,26 +1,62 @@
 {
-	"name": "auto-note-mover",
-	"version": "1.2.0",
-	"description": "Auto Note Mover will automatically move the active notes to their respective folders according to the rules.",
-	"main": "main.js",
-	"scripts": {
-		"dev": "node esbuild.config.mjs",
-		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "MIT",
-	"devDependencies": {
-		"@types/node": "^16.11.6",
-		"@typescript-eslint/eslint-plugin": "^5.2.0",
-		"@typescript-eslint/parser": "^5.2.0",
-		"builtin-modules": "^3.2.0",
-		"esbuild": "0.13.12",
-		"obsidian": "^0.12.17",
-		"tslib": "2.3.1",
-		"typescript": "4.4.4"
-	},
-	"dependencies": {
-		"@popperjs/core": "^2.11.2"
-	}
+  "name": "mycoshiro-auto-note-mover",
+  "version": "1.2.0",
+  "description": "Auto Note Mover will automatically move the active notes to their respective folders according to the rules.",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+    "lint": "eslint \"**/*.ts\" \"**/*.mjs\"",
+    "lint:fix": "eslint \"**/*.ts\" \"**/*.mjs\" --fix",
+    "deploy": "cross-env-shell \"yarn shx --verbose mkdir -p \"${PROJECT_CWD}/.obsidian/plugins/${npm_package_name}\" && yarn shx --verbose cp -u dist/main.js manifest.json versions.json \"${PROJECT_CWD}/.obsidian/plugins/${npm_package_name}\" \"",
+    "release": "yarn build && yarn deploy"
+  },
+  "keywords": [],
+  "author": "Joel Van Eenwyk",
+  "authorUrl": "https://github.com/joelvaneenwyk/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joelvaneenwyk/mycoshiro-auto-note-mover.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@babel/plugin-transform-nullish-coalescing-operator": "^7.23.4",
+    "@popperjs/core": "^2.11.8",
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.10.6",
+    "@types/react": "^18.2.46",
+    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/parser": "^6.17.0",
+    "babel-jest": "^29.7.0",
+    "babel-plugin-import-glob": "^2.0.0",
+    "builtin-modules": "^3.3.0",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "esbuild": "0.19.11",
+    "esbuild-plugin-import-glob": "^0.1.1",
+    "esbuild-plugin-replace": "^1.4.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-jest": "^27.6.1",
+    "eslint-plugin-json-files": "^4.1.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-prettier": "^5.1.2",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-regex": "^1.10.0",
+    "eslint-plugin-regexp": "^2.1.2",
+    "eslint-plugin-svelte": "^2.35.1",
+    "eslint-plugin-unicorn": "^50.0.1",
+    "jest": "^29.7.0",
+    "obsidian": "^1.4.11",
+    "prettier": "^3.1.1",
+    "shx": "^0.3.4",
+    "svelte": "^4.2.8",
+    "ts-node": "^10.9.2",
+    "tslib": "2.6.2",
+    "typescript": "^5.3.3",
+    "unified-lint-rule": "^2.1.2",
+    "vue-eslint-parser": "^9.3.2"
+  }
 }
